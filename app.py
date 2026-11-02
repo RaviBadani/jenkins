@@ -1,21 +1,15 @@
-from flask import Flask, jsonify
+
+from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 
-
 @app.route("/")
 def home():
-    return jsonify({
-        "message": "Automatic Jenkins Build Successful!",
-        "application": "Flask Docker Application",
-        "status": "Running"
-    })
-
+    return render_template("index.html")
 
 @app.route("/health")
 def health():
-    return jsonify({"status": "healthy"}), 200
-
+    return jsonify({"status": "healthy"})
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
