@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return jsonify({
-        "message": "CI/CD Pipeline Successful!",
+        "message": "Automatic Jenkins Build Successful!",
         "application": "Flask Docker Application",
         "status": "Running"
     })
