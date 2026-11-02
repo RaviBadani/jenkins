@@ -14,17 +14,18 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo 'Building Flask Docker image'
-                bat 'docker build -t flask-cicd-app .'
+
+                sh 'docker build -t flask-cicd-app .'
             }
         }
 
         stage('Run Tests') {
             steps {
                 echo 'Running automated tests inside Docker'
-                bat 'docker run --rm flask-cicd-app pytest -v'
+
+                sh 'docker run --rm flask-cicd-app pytest -v'
             }
         }
-
     }
 
     post {
